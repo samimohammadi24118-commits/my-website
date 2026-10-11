@@ -1,0 +1,431 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>PAMIR WEAR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: Nexcent-style. Sticky nav with CTA, split hero, category strip, alternating text/photo rows, tinted bands, floating chat button. */
+:root{
+  --bg:#F4F7F5;
+  --surface:#FFFFFF;
+  --tint:#E6EEE9;
+  --sand:#EFE8D8;
+  --text:#0F2B2A;
+  --muted:#46595A;
+  --brand:#14403C;
+  --on-brand:#FFFFFF;
+  --accent:#5A6B2A;
+  --line:#D4DFDA;
+  --photo:#FFFFFF;
+  --footer:#0E2B28;
+  --on-footer:#C9D8D3;
+  --head:'Outfit','Helvetica Neue',Arial,sans-serif;
+  --body:'Figtree','Segoe UI',Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0B1716;--surface:#112320;--tint:#12261F;--sand:#1B2A22;--text:#EAF1EE;--muted:#A6BAB4;
+    --brand:#B9CE7C;--on-brand:#0B1716;--accent:#B9CE7C;--line:#24403A;--footer:#07100F;--on-footer:#B5C7C1;color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0B1716;--surface:#112320;--tint:#12261F;--sand:#1B2A22;--text:#EAF1EE;--muted:#A6BAB4;
+  --brand:#B9CE7C;--on-brand:#0B1716;--accent:#B9CE7C;--line:#24403A;--footer:#07100F;--on-footer:#B5C7C1;color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-size:1.0625rem;line-height:1.65}
+h1,h2,h3{font-family:var(--head);line-height:1.1;margin:0 0 .5em;letter-spacing:-.015em;text-wrap:balance}
+h2{font-size:clamp(1.9rem,4.2vw,2.8rem);font-weight:700}
+h3{font-size:1.5rem;font-weight:600}
+p{margin:0 0 1em;max-width:62ch}
+a{color:inherit}
+img{display:block}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1160px;margin-inline:auto;padding-inline:20px}
+.band{padding-block:88px}
+.head{text-align:center;margin-bottom:48px}
+.head p{margin-inline:auto;color:var(--muted)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--head);font-weight:600;font-size:1rem;text-decoration:none;padding:13px 26px;border-radius:6px;background:var(--brand);color:var(--on-brand);border:2px solid var(--brand);cursor:pointer;transition:filter .15s}
+.btn:hover{filter:brightness(1.12)}
+.btn.ghost{background:transparent;color:var(--text);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--brand);filter:none}
+.btn.sm{padding:10px 18px;font-size:.95rem}
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.head .btns{justify-content:center}
+
+/* nav */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--surface);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--head);font-weight:700;font-size:1.25rem;letter-spacing:.03em}
+.logo img{width:44px;height:44px;border-radius:50%}
+.links{display:flex;align-items:center;gap:6px 26px;list-style:none;margin:0;padding:0}
+.links a{text-decoration:none;font-weight:500;padding:6px 0}
+.links a:not(.btn):hover{color:var(--accent)}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);border-radius:6px;padding:8px 14px;font:inherit;font-weight:600;cursor:pointer}
+
+/* hero */
+.hero{background:var(--tint);padding-block:64px 0}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding-bottom:64px}
+.hero h1{font-size:clamp(1.9rem,4vw,3.1rem);font-weight:600;line-height:1.18}
+.hero-img{width:100%;height:auto;aspect-ratio:13/12;object-fit:cover;border-radius:16px}
+.motif{height:14px;background:var(--brand);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpolygon points='20,1 33,7 20,13 7,7' fill='none' stroke='black' stroke-width='1.6'/%3E%3Cpolygon points='20,4.5 25,7 20,9.5 15,7'/%3E%3Crect x='0' y='6' width='4' height='2'/%3E%3Crect x='36' y='6' width='4' height='2'/%3E%3C/svg%3E") repeat-x 0 0/40px 14px;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='14'%3E%3Cpolygon points='20,1 33,7 20,13 7,7' fill='none' stroke='black' stroke-width='1.6'/%3E%3Cpolygon points='20,4.5 25,7 20,9.5 15,7'/%3E%3Crect x='0' y='6' width='4' height='2'/%3E%3Crect x='36' y='6' width='4' height='2'/%3E%3C/svg%3E") repeat-x 0 0/40px 14px}
+
+/* category strip */
+.cats{background:var(--surface);border-bottom:1px solid var(--line);padding-block:40px}
+.cats h2{font-size:1.5rem;text-align:center;margin-bottom:24px}
+.cat-row{display:flex;flex-wrap:wrap;justify-content:center;gap:20px 40px;list-style:none;margin:0;padding:0}
+.cat-row a{display:flex;flex-direction:column;align-items:center;gap:10px;text-decoration:none;font-weight:600;text-align:center;width:104px}
+.cat-row img{width:84px;height:84px;border-radius:50%;object-fit:cover;object-position:center 25%;background:var(--photo);border:2px solid var(--line);transition:border-color .15s}
+.cat-row a:hover img{border-color:var(--brand)}
+
+/* split rows */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.split>*{min-width:0}
+.split.rev .copy{order:2}
+.panel{background:var(--tint);border-radius:18px;padding:22px}
+.tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:14px}
+.tile{margin:0;aspect-ratio:4/5;background:var(--photo);border-radius:10px;overflow:hidden;flex:0 0 calc((100% - 28px)/3)}
+.tiles.cols2 .tile{flex-basis:calc((100% - 14px)/2)}
+.tiles.cols1 .tile{flex-basis:min(100%,340px)}
+.tile img{width:100%;height:100%;object-fit:cover}
+.tile img.fit{object-fit:contain}
+.tile img.top{object-position:center top}
+.callout{border-left:4px solid var(--accent);padding-left:20px;margin-top:28px}
+.callout h3{font-size:1.25rem;margin-bottom:.25em}
+.callout p{margin-bottom:.8em;color:var(--muted)}
+.home-img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top;border-radius:12px}
+
+/* products */
+.prod{padding-block:44px;border-top:1px solid var(--line)}
+.prod:first-of-type{border-top:0}
+.prod p{color:var(--muted)}
+.prod .split{grid-template-columns:5fr 7fr}
+.prod .split.rev{grid-template-columns:7fr 5fr}
+
+/* new arrivals */
+.new{background:var(--sand)}
+.new .head p{color:var(--muted)}
+.na-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:16px}
+.na-grid .tile{flex:0 0 calc((100% - 48px)/4)}
+
+/* about */
+.about-logo{width:min(100%,300px);aspect-ratio:1;border-radius:50%;margin-inline:auto}
+
+/* contact */
+.contact{background:var(--tint)}
+.cbtns{display:grid;gap:12px}
+.cbtn{display:flex;align-items:center;gap:16px;padding:16px 20px;border-radius:12px;background:var(--surface);border:1px solid var(--line);text-decoration:none;color:var(--text);transition:border-color .15s}
+.cbtn:hover{border-color:var(--brand)}
+.cbtn svg{flex:none}
+.cbtn b{display:block;font-family:var(--head);font-size:1.1rem}
+.cbtn span{display:block;color:var(--muted);font-size:.95rem;line-height:1.35}
+.cbtn.main{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+.cbtn.main span{color:var(--on-brand);opacity:.85}
+.hours{margin-top:16px;padding:14px 20px;border-radius:12px;border:1px dashed var(--line);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.hours b{font-family:var(--head)}
+.steps{counter-reset:s;list-style:none;margin:0 0 8px;padding:0}
+.steps li{counter-increment:s;position:relative;padding:12px 0 12px 54px;border-bottom:1px solid var(--line);font-weight:500}
+.steps li::before{content:counter(s);position:absolute;left:0;top:8px;width:36px;height:36px;border-radius:50%;background:var(--brand);color:var(--on-brand);font-family:var(--head);font-weight:700;display:grid;place-items:center}
+
+/* chat button */
+.chat-fab{position:fixed;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:30;display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:999px;background:var(--brand);color:var(--on-brand);font-family:var(--head);font-weight:600;text-decoration:none;box-shadow:0 8px 24px rgba(0,0,0,.28);transition:filter .15s}
+.chat-fab:hover{filter:brightness(1.12)}
+
+/* footer */
+footer{background:var(--footer);color:var(--on-footer);padding-block:56px 32px}
+footer .motif{background:var(--on-footer);opacity:.35;margin-bottom:40px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:36px 64px}
+.foot .logo{color:#fff;margin-bottom:12px}
+.foot p{max-width:40ch}
+.foot h4{font-family:var(--head);color:#fff;margin:0 0 10px;font-size:1.05rem}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.foot a{text-decoration:none}
+.foot a:hover{text-decoration:underline}
+.legal{border-top:1px solid rgba(255,255,255,.15);margin-top:36px;padding-top:20px;font-size:.92rem}
+
+@media (max-width:860px){
+  .band{padding-block:60px}
+  .hero{padding-block:36px 0}
+  .hero-grid,.split,.prod .split,.prod .split.rev{grid-template-columns:1fr;gap:32px}
+  .split.rev .copy{order:0}
+  .hero-grid{padding-bottom:40px}
+  .menu-btn{display:inline-block}
+  .links{display:none;position:absolute;left:0;right:0;top:100%;background:var(--surface);border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;padding:12px 20px 20px;gap:2px}
+  .links.open{display:flex}
+  .links a{padding:10px 0}
+  .links .btn{margin-top:8px}
+  .prod{padding-block:32px}
+  .na-grid .tile{flex-basis:calc((100% - 32px)/3)}
+}
+@media (max-width:560px){
+  .tile,.tiles.cols2 .tile{flex-basis:calc((100% - 14px)/2)}
+  .tiles.cols1 .tile{flex-basis:min(100%,340px)}
+  .na-grid .tile{flex-basis:calc((100% - 16px)/2)}
+  .panel{padding:14px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><img src="img/logo.webp" width="44" height="44" alt="">PAMIR WEAR</a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="links">Menu</button>
+    <ul class="links" id="links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#products">Products</a></li>
+      <li><a href="#new-arrivals">New Arrivals</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+      <li><a class="btn sm" href="#contact" data-c="wa" target="_blank" rel="noopener">Order on WhatsApp</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Discover a fresh collection of men's clothing designed for young men who value style, comfort, and quality.</h1>
+        <div class="btns">
+          <a class="btn" href="#products">Explore Collection</a>
+          <a class="btn ghost" href="#contact" data-c="wa" target="_blank" rel="noopener">Order on WhatsApp</a>
+        </div>
+      </div>
+      <img class="hero-img" src="img/hero.webp" width="780" height="720" alt="Four young men in waistcoats, knitwear and jackets, sitting and standing on a rock with snow-capped mountains behind them">
+    </div>
+    <div class="motif" aria-hidden="true"></div>
+  </section>
+
+  <section class="cats" aria-labelledby="catsH">
+    <div class="wrap">
+      <h2 id="catsH">Shop by category</h2>
+      <ul class="cat-row">
+        <li><a href="#waistcoats"><img src="img/vest.webp" width="84" height="84" alt="" loading="lazy">Waistcoats</a></li>
+        <li><a href="#sweaters"><img src="img/grey-knit.webp" width="84" height="84" alt="" loading="lazy">Hoodies &amp; Sweaters</a></li>
+        <li><a href="#jackets"><img src="img/cream-jacket.webp" width="84" height="84" alt="" loading="lazy">Jackets</a></li>
+        <li><a href="#trousers"><img src="img/cargo.webp" width="84" height="84" alt="" loading="lazy">Trousers</a></li>
+        <li><a href="#tshirts"><img src="img/tee.webp" width="84" height="84" alt="" loading="lazy">T-Shirts</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" id="home">
+    <div class="wrap split">
+      <img class="home-img" src="img/grey-knit.webp" width="640" height="922" alt="A man in a grey knitted zip sweater and jeans" loading="lazy">
+      <div class="copy">
+        <h2>Your Style. Your Identity.</h2>
+        <h3>Welcome to PAMIR WEAR</h3>
+        <p>Whether you prefer a casual everyday look or a more elegant style, discover clothing that helps you express yourself with confidence.</p>
+        <div class="callout">
+          <h3>Discover Your Style</h3>
+          <p>Explore our latest collection and find the right look for you.</p>
+          <a class="btn sm" href="#products">Explore Collection</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="products" style="padding-top:0">
+    <div class="wrap">
+      <div class="head">
+        <h2>Find Your Perfect Style</h2>
+        <p>Explore our collection of men's clothing, designed for everyday wear, special occasions, and different personal styles.</p>
+      </div>
+
+      <article class="prod" id="waistcoats">
+        <div class="split">
+          <div class="copy">
+            <h3>Waistcoats</h3>
+            <p>Discover stylish waistcoats.</p>
+          </div>
+          <div class="panel"><div class="tiles">
+            <figure class="tile"><img src="img/vest.webp" width="720" height="900" alt="Olive teddy-fleece waistcoat with a beige zip and trim" loading="lazy"></figure>
+            <figure class="tile"><img src="img/vest-green.webp" width="720" height="900" alt="Green quilted zip waistcoat" loading="lazy"></figure>
+            <figure class="tile"><img src="img/vest-blue.webp" width="720" height="900" alt="Light blue quilted zip waistcoat" loading="lazy"></figure>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="prod" id="sweaters">
+        <div class="split rev">
+          <div class="copy">
+            <h3>Hoodies &amp; Sweaters</h3>
+            <p>Stay comfortable and stylish with sweaters suitable for cooler days and casual occasions.</p>
+          </div>
+          <div class="panel"><div class="tiles">
+            <figure class="tile"><img class="top" src="img/grey-knit.webp" width="640" height="922" alt="Grey knitted zip sweater with a ribbed funnel collar" loading="lazy"></figure>
+            <figure class="tile"><img src="img/coach-hoodie.webp" width="720" height="900" alt="Black pullover hoodie with tan patterned panels on the chest and sleeves" loading="lazy"></figure>
+            <figure class="tile"><img class="fit" src="img/compton-a.webp" width="447" height="447" alt="Black hoodie with white lettering on the chest" loading="lazy"></figure>
+            <figure class="tile"><img class="fit" src="img/compton-b.webp" width="310" height="350" alt="Black pullover hoodie with white lettering" loading="lazy"></figure>
+            <figure class="tile"><img src="img/confess.webp" width="259" height="194" alt="Black hoodie with a printed graphic on the back" loading="lazy"></figure>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="prod" id="jackets">
+        <div class="split">
+          <div class="copy">
+            <h3>Jackets</h3>
+            <p>Complete your look with modern jackets designed for versatility, comfort, and everyday style.</p>
+          </div>
+          <div class="panel"><div class="tiles">
+            <figure class="tile"><img class="fit" src="img/cream-jacket.webp" width="620" height="930" alt="Cream ribbed knit zip jacket with a collar" loading="lazy"></figure>
+            <figure class="tile"><img src="img/olive-hoodie.webp" width="720" height="900" alt="Olive green zip-up hoodie with a front pocket" loading="lazy"></figure>
+            <figure class="tile"><img src="img/jacket-navy.webp" width="720" height="900" alt="Navy zip-up jacket with a stand collar" loading="lazy"></figure>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="prod" id="trousers">
+        <div class="split rev">
+          <div class="copy">
+            <h3>Trousers</h3>
+            <p>Find trousers that combine comfort, a good fit, and a modern appearance.</p>
+          </div>
+          <div class="panel"><div class="tiles cols2">
+            <figure class="tile"><img src="img/cargo.webp" width="504" height="630" alt="Olive cargo trousers with side pockets" loading="lazy"></figure>
+            <figure class="tile"><img src="img/joggers.webp" width="720" height="900" alt="Cream cargo joggers, front and back" loading="lazy"></figure>
+          </div></div>
+        </div>
+      </article>
+
+      <article class="prod" id="tshirts">
+        <div class="split">
+          <div class="copy">
+            <h3>T-Shirts</h3>
+            <p>Keep your style simple and fresh with T-shirts for everyday wear, casual outings, and streetwear looks.</p>
+          </div>
+          <div class="panel"><div class="tiles cols2">
+            <figure class="tile"><img src="img/tee.webp" width="640" height="800" alt="Cream oversized crew-neck T-shirt" loading="lazy"></figure>
+            <figure class="tile"><img src="img/henley.webp" width="720" height="900" alt="Grey striped short-sleeve henley T-shirt" loading="lazy"></figure>
+          </div></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="band new" id="new-arrivals">
+    <div class="wrap">
+      <div class="head">
+        <h2>Fresh Styles. New Possibilities.</h2>
+        <p>Stay up to date with the latest designs from PAMIR WEAR. Discover new colors, modern cuts, seasonal collections, and fresh styles for young men.</p>
+        <p>We keep exploring new ideas to bring you clothing that fits your lifestyle.</p>
+        <div class="btns"><a class="btn" href="#new-grid">Explore New Arrivals</a></div>
+      </div>
+      <div class="na-grid" id="new-grid">
+        <figure class="tile"><img src="img/olive-hoodie.webp" width="720" height="900" alt="Olive green zip-up hoodie" loading="lazy"></figure>
+        <figure class="tile"><img src="img/hoodie-olive.webp" width="720" height="900" alt="Olive green hoodie with a small black logo on the chest" loading="lazy"></figure>
+        <figure class="tile"><img src="img/hoodie-sand.webp" width="720" height="900" alt="Sand-colored hoodie with a small black logo on the chest" loading="lazy"></figure>
+        <figure class="tile"><img src="img/varsity.webp" width="720" height="900" alt="Maroon and white varsity jacket with snap buttons, shown front and back" loading="lazy"></figure>
+        <figure class="tile"><img src="img/vest-navy.webp" width="720" height="900" alt="Navy quilted zip waistcoat" loading="lazy"></figure>
+        <figure class="tile"><img src="img/tee-red.webp" width="720" height="900" alt="Red crew-neck T-shirt" loading="lazy"></figure>
+        <figure class="tile"><img src="img/tee-print.webp" width="720" height="900" alt="Sand-colored T-shirt with a black printed design" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="about">
+    <div class="wrap split">
+      <img class="about-logo" src="img/logo.webp" width="320" height="320" alt="PAMIR WEAR logo: the word Pamir above a row of geometric motifs and the word Wear, in white on black" loading="lazy">
+      <div class="copy">
+        <h2>Our Roots. Our Vision.</h2>
+        <p>PAMIR WEAR is a men's clothing brand. We aim to offer a variety of men's clothing, including waistcoats, jumpers, jackets, trousers, and T-shirts, while building a brand that can grow to international markets.</p>
+        <p>Our vision is to bring traditional inspiration and modern fashion together through clothing that feels comfortable, looks stylish, and reflects individual identity.</p>
+        <p>At PAMIR WEAR, we believe that clothing is more than what you wear. It is a way to express who you are.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band contact" id="contact">
+    <div class="wrap">
+      <div class="head">
+        <h2>We'd Love to Hear from You</h2>
+        <p>Have a question about a product, need help choosing a size, or want to place an order? Contact PAMIR WEAR. Our team will be happy to assist you.</p>
+      </div>
+      <div class="split" style="align-items:start">
+        <div>
+          <div class="cbtns">
+            <a class="cbtn main" href="#contact" data-c="wa" target="_blank" rel="noopener">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>
+              <div><b>WhatsApp</b><span>Message us to order or ask about sizes</span></div>
+            </a>
+            <a class="cbtn" href="#contact" data-c="tel">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+              <div><b>Call us</b><span>Speak with our team</span></div>
+            </a>
+            <a class="cbtn" href="#contact" data-c="mail">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <div><b>Email us</b><span>Send us a message</span></div>
+            </a>
+          </div>
+          <div class="hours"><b>Business Hours</b><span>9 to 5</span></div>
+        </div>
+        <div>
+          <h3>How to Order</h3>
+          <ol class="steps">
+            <li>Browse our products.</li>
+            <li>Choose your preferred style, color, and size.</li>
+            <li>Contact us through WhatsApp or phone.</li>
+            <li>Confirm your order and delivery details.</li>
+          </ol>
+          <div class="btns"><a class="btn" href="#contact" data-c="wa" target="_blank" rel="noopener">Order on WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<a class="chat-fab" href="https://customer-service-410352.zapier.app" target="_blank" rel="noopener">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-5 4V6a1 1 0 0 1 1-1z"/></svg>
+  Chat with us
+</a>
+
+<footer>
+  <div class="wrap">
+    <div class="motif" aria-hidden="true"></div>
+    <div class="foot">
+      <div>
+        <a class="logo" href="#top"><img src="img/logo.webp" width="44" height="44" alt="">PAMIR WEAR</a>
+        <p>Modern men's clothing designed for the next generation.</p>
+      </div>
+      <nav aria-label="Quick links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#new-arrivals">New Arrivals</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="legal">&copy; 2026 PAMIR WEAR. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn=document.getElementById('menuBtn'),links=document.getElementById('links');
+  btn.addEventListener('click',function(){var o=links.classList.toggle('open');btn.setAttribute('aria-expanded',o?'true':'false')});
+  links.addEventListener('click',function(e){if(e.target.closest('a')){links.classList.remove('open');btn.setAttribute('aria-expanded','false')}});
+
+  /* Contact details are not written into the page. Each contact button builds its link only when it is tapped. */
+  var K={w:'OTM3NjYwNDEyNTA=',t:'KzkzNzQ1NzYyNjc5',m:'c2FtaXVsbGFoLjI0MTE4QGdtYWlsLmNvbQ=='};
+  function d(s){return atob(s)}
+  function build(k){
+    if(k==='wa')return 'https://wa.me/'+d(K.w)+'?text='+encodeURIComponent("Hello PAMIR WEAR, I'd like to place an order.");
+    if(k==='tel')return 'tel:'+d(K.t);
+    if(k==='mail')return 'mailto:'+d(K.m)+'?subject='+encodeURIComponent('PAMIR WEAR enquiry');
+    return '#contact';
+  }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('[data-c]');
+    if(a){a.setAttribute('href',build(a.getAttribute('data-c')))}
+  },true);
+})();
+</script>
+
+</body></html>
